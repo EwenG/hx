@@ -165,6 +165,16 @@
 (dc/defcard class-name-prop
   (hx/f [ClassNameProp {:class "foo"}]))
 
+(hx/defnc ClassNames []
+  [:<>
+   [:div {:class "single"} "single"]
+   [:div {:class ["foo" "bar"]} "foo bar"]
+   [:div {:class ["foo" nil "bar"]} "foo <nil> bar"]])
+
+(dc/defcard class-names
+  (hx/f [ClassNames]))
+
+
 (hx/defnc NamespaceKeywords [{:keys [namespace/value] :as props}]
   [:<>
    [:div (prn-str props)]

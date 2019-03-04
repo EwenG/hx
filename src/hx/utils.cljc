@@ -163,7 +163,7 @@
 
         (and (or (sequential? value)
                  (set? value))
-             (every? string? value))
+             (every? (some-fn string? nil?) value))
         (join-classes value)
 
         (vector? value)
